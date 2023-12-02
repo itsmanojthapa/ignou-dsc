@@ -31,7 +31,6 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} ${inter.className} ${spaceGrotest.variable}`}>
-        <h1 className="font-bold ">This is a peace of text</h1>
         <ClerkProvider
           appearance={{
             elements: {
