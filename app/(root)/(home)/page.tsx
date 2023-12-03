@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
 import HomeFilters from "@/components/home/HomeFilters";
+import NoResult from "@/components/shared/NoResult/NoResult";
 
 export default function Home() {
+  const questions = [];
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -33,6 +35,22 @@ export default function Home() {
         />
       </div>
       <HomeFilters />
+      {/* Card Section */}
+      <div className="mt-10 flex flex-col gap-6">
+        {/*  //!Todo: looping through questions */}
+        {questions?.length > 0 ? (
+          questions?.map((question) => (
+            <div key={question?._id}>QuestionCard</div>
+          ))
+        ) : (
+          <NoResult
+            title="There is no quesiton to show"
+            description="Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡"
+            link="/ask-questions"
+            linkTitle="Ask a Question"
+          />
+        )}
+      </div>
     </>
   );
 }
