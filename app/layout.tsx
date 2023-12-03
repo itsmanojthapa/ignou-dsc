@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+/* eslint-disable */
 import { Inter, Space_Grotesk } from "next/font/google";
+/* eslint-enable */
 import "./globals.css";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
