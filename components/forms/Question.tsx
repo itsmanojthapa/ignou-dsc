@@ -212,7 +212,7 @@ const Question = () => {
           )}
         />
         <Button
-          className="primary-gradient w-fit !text-light-900"
+          className="primary-gradient mb-6 w-full !text-light-900"
           type="submit"
           disabled={isSubmitting}>
           {isSubmitting ? (
