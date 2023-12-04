@@ -22,6 +22,9 @@ const spaceGrotest = Space_Grotesk({
 export const metadata: Metadata = {
   title: "IGNOU-DSC",
   description: "Dev. Student Social Platform.",
+  icons: {
+    icon: "/assets/images/logo.png",
+  },
 };
 
 export default function RootLayout({
