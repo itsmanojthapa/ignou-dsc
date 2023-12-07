@@ -8,7 +8,7 @@ import {
   UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
-import Question from "@/database/questions.model";
+// import Question from "@/database/questions.model";
 
 export const getUserById = async (params: any) => {
   try {
@@ -72,14 +72,14 @@ export const deleteUser = async (params: DeleteUserParams) => {
     // }).distinct("_id");
 
     // delete user Questions
-    await Question.deleteMany({ author: user._id });
+    // await Question.deleteMany({ author: user._id });
 
     // todo: delete user answers, comments etc
 
     // delete user
-    const deletedUser = await User.findByIdAndDelete(user._id);
+    // const deletedUser = await User.findByIdAndDelete(user._id);
 
-    return deletedUser;
+    return user;
   } catch (error) {
     console.log(error);
     throw error;
