@@ -50,7 +50,7 @@ const RightSidebar = () => {
           {popularTags.map((tag) => (
             <RenderTag
               key={tag._id}
-              _id={tag._id}
+              _id={tag._id + ""}
               name={tag.name}
               totalQuestions={tag.totalQuestions}
               showCount
