@@ -9,7 +9,7 @@ const AskQuestion = async () => {
 
   const mongoUser = await getUserById({ userId });
 
-  console.log("AskQuestion  mongoUser:", mongoUser);
+  console.log("AskQuestion mongoUser: ", mongoUser);
 
   return (
     <div>
