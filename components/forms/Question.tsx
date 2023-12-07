@@ -52,7 +52,6 @@ const Question = ({ mongoUserId }: QuestionProps) => {
 
     try {
       // todo: make async call to our api -> to create a question
-      await createQuestion({});
 
       // contain all form data
       await createQuestion({
