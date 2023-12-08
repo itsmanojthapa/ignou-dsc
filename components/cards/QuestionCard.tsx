@@ -49,15 +49,17 @@ function QuestionCard({
         ))}
       </div>
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
-        <Metric
-          href={`/profile/${author._id}`}
-          imgUrl={"/assets/icons/avatar.svg"}
-          alt="user"
-          value={author.name}
-          isAuthor
-          title={`- asked ${getTimeStamp(createdAt)}`}
-          textStyles="body-medium text-dark400_light700"
-        />
+        {author && (
+          <Metric
+            href={`/profile/${author._id}`}
+            imgUrl={"/assets/icons/avatar.svg"}
+            alt="user"
+            value={author.name}
+            isAuthor
+            title={`- asked ${getTimeStamp(createdAt)}`}
+            textStyles="body-medium text-dark400_light700"
+          />
+        )}
         <div className="flex-between flex-wrap gap-3">
           <Metric
             href={`/questions/${_id}`}

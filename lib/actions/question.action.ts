@@ -15,7 +15,7 @@ export const getQuestions = async (params: GetQuestionsParams) => {
         path: "tags",
         model: Tag,
       })
-      .populate({ path: "author", model: User })
+      .populate({ path: "author", model: User, select: "_id name picture" })
       .sort({ createdAt: -1 });
 
     return { questions };
