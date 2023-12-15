@@ -1,5 +1,6 @@
 import Metric from "@/components/shared/Metric/Metric";
 import ParselHTML from "@/components/shared/ParselHTML/ParselHTML";
+import RenderTag from "@/components/shared/RightSidebar/RenderTag";
 import { getQuestionById } from "@/lib/actions/question.action";
 import { getTimeStamp, formatAndDivideNumber } from "@/lib/utils";
 import Image from "next/image";
@@ -59,6 +60,16 @@ const QuestionDetails = async ({ params }: { params: any }) => {
       </div>
 
       <ParselHTML data={question.content} />
+      <div className="mt-8 flex flex-wrap gap-2">
+        {question.tags.map((tag: any) => (
+          <RenderTag
+            key={tag._id}
+            _id={tag._id}
+            name={tag.name}
+            showCount={false}
+          />
+        ))}
+      </div>
     </>
   );
 };
