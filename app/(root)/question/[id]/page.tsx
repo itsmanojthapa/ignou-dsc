@@ -1,3 +1,4 @@
+import Answer from "@/components/forms/Answer";
 import Metric from "@/components/shared/Metric/Metric";
 import ParselHTML from "@/components/shared/ParselHTML/ParselHTML";
 import RenderTag from "@/components/shared/RightSidebar/RenderTag";
@@ -8,9 +9,7 @@ import Link from "next/link";
 import React from "react";
 
 const QuestionDetails = async ({ params }: { params: any }) => {
-  // console.log("QuestionDetails  params:", params);
   const question = await getQuestionById({ questionId: params.id });
-  // console.log("QuestionDetails  question:", question);
   return (
     <>
       <div className="flex-start w-full flex-col ">
@@ -70,6 +69,7 @@ const QuestionDetails = async ({ params }: { params: any }) => {
           />
         ))}
       </div>
+      <Answer />
     </>
   );
 };

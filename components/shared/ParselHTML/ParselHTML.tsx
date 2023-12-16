@@ -27,8 +27,6 @@ import "prismjs/plugins/line-numbers/prism-line-numbers.js";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import { useEffect } from "react";
 
-import "@/styles/prism.css";
-
 interface Props {
   data: string;
 }
