@@ -16,8 +16,16 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useTheme } from "@/context/ThemeProvider";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { createAnswer } from "@/lib/actions/answer.action";
+import { usePathname } from "next/navigation";
 
-const Answer = () => {
+interface Props {
+  question: string;
+  questionId: string;
+  authorId: string;
+}
+
+const Answer = ({ question, questionId, authorId }: Props) => {
   const { mode } = useTheme();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const editorRef = useRef(null);
@@ -27,9 +35,30 @@ const Answer = () => {
       answer: "",
     },
   });
-  console.log("mode : " + mode);
+  const pathname = usePathname();
 
-  const handleCreatAnswer = (data) => {};
+  const handleCreatAnswer = async (values: z.infer<typeof AnswerSchma>) => {
+    setIsSubmitting(true);
+    try {
+      await createAnswer({
+        content: values.answer,
+        author: JSON.parse(authorId),
+        question: JSON.parse(questionId),
+        path: pathname,
+      });
+
+      form.reset();
+      if (editorRef.current) {
+        const editor = editorRef.current as any;
+        editor.setContent("");
+      }
+    } catch (error) {
+      console.log(error);
+      throw error;
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="mt-8">
       <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
@@ -93,7 +122,7 @@ const Answer = () => {
                         "alignright alignjustify | bullist numlist ",
                       content_style:
                         "body { font-family:Inter; font-size:16px }",
-                      skin: mode === "dark" ? "oxide-dark" : "oxide",
+                      // skin: mode === "dark" ? "oxide-dark" : "oxide",
                       content_css: mode === "dark" ? "dark" : "light",
                     }}
                   />
