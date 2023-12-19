@@ -6,9 +6,13 @@ import Metric from "../shared/Metric/Metric";
 interface QuestionCardProps {
   _id: string;
   title: string;
-  tags: { _id: string; name: string }[];
+  tags: {
+    _id: string;
+    name: string;
+  }[];
   author: {
     _id: string;
+    clerkId: string;
     name: string;
     picture: string;
   };
@@ -16,6 +20,7 @@ interface QuestionCardProps {
   views: number;
   answers: Array<object>;
   createdAt: Date;
+  clerkId?: string | null;
 }
 
 function QuestionCard({
@@ -63,7 +68,7 @@ function QuestionCard({
         <div className="flex-between flex-wrap gap-3">
           <Metric
             href={`/question/${_id}`}
-            imgUrl="assets/icons/like.svg"
+            imgUrl="/assets/icons/like.svg"
             alt="upvotes"
             value={formatAndDivideNumber(upvotes)}
             title="Votes"
@@ -71,7 +76,7 @@ function QuestionCard({
           />
           <Metric
             href={`/question/${_id}`}
-            imgUrl="assets/icons/message.svg"
+            imgUrl="/assets/icons/message.svg"
             alt="message"
             value={answers.length}
             title="Answers"
@@ -79,7 +84,7 @@ function QuestionCard({
           />
           <Metric
             href={`/question/${_id}`}
-            imgUrl="assets/icons/eye.svg"
+            imgUrl="/assets/icons/eye.svg"
             alt="eye"
             value={formatAndDivideNumber(views)}
             title="Views"
