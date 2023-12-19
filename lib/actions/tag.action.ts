@@ -72,9 +72,6 @@ export const getQuestionsByTagId = async (
       match: searchQuery
         ? { title: { $regex: searchQuery, $options: "i" } }
         : {},
-      options: {
-        sort: { createdAt: -1 },
-      },
       populate: [
         { path: "tags", model: Tag, select: "_id name" },
         { path: "author", model: User, select: "_id clerkId name picture" },
@@ -84,6 +81,7 @@ export const getQuestionsByTagId = async (
     if (!tag) {
       throw new Error("Tag not found");
     }
+    console.log(tag);
 
     const questions = tag.questions;
 

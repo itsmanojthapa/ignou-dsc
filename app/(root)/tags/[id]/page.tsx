@@ -11,6 +11,8 @@ const TagDetails = async ({ params, searchParams }: URLProps) => {
     page: 1,
     searchQuery: searchParams.q,
   });
+  console.log(questions);
+
   return (
     <>
       <h1 className="h1-bold text-dark100_light900">{tagTitle}</h1>
