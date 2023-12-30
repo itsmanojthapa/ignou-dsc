@@ -26,6 +26,9 @@ export const getTimeStamp = (createdAt: Date): string => {
 };
 
 export const formatAndDivideNumber = (inputNumber: number): string => {
+  if (inputNumber === undefined) {
+    return "0";
+  }
   if (inputNumber >= 1000000) {
     return (inputNumber / 1000000).toFixed(1) + "M";
   } else if (inputNumber >= 1000) {
@@ -33,4 +36,14 @@ export const formatAndDivideNumber = (inputNumber: number): string => {
   } else {
     return inputNumber.toString();
   }
+};
+
+export const getJoinedDate = (date: Date): string => {
+  const month = date.toLocaleString("default", { month: "long" });
+  const year = date.getFullYear();
+
+  // Create the joined date string (e.g., "September 2023")
+  const joinedDate = `${month} ${year}`;
+
+  return joinedDate;
 };
