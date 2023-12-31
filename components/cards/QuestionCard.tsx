@@ -32,6 +32,7 @@ function QuestionCard({
   createdAt,
   views,
   answers,
+  clerkId,
 }: QuestionCardProps) {
   return (
     <div className="card-wrapper rounded-[10px] p-9 sm:px-11">

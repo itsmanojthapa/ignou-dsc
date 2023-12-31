@@ -1,6 +1,5 @@
 import { formatAndDivideNumber } from "@/lib/utils";
 import Image from "next/image";
-import { title } from "process";
 import React from "react";
 
 interface StatsCardProps {
