@@ -23,11 +23,6 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Collections",
   },
   {
-    imgURL: "/assets/icons/users.svg",
-    route: "/friends",
-    label: "Friends",
-  },
-  {
     imgURL: "/assets/icons/tag.svg",
     route: "/tags",
     label: "Tags",

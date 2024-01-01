@@ -123,3 +123,13 @@ export interface GetUserStatsParams {
   page?: number;
   pageSize?: number;
 }
+
+export interface DeleteAnswerParams {
+  answerId: string;
+  path: string;
+}
+
+export interface DeleteQuestionParams {
+  questionId: string;
+  path: string;
+}
