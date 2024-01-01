@@ -78,8 +78,10 @@ const QuestionDetails = async ({ params }: { params: any }) => {
           textStyles="small-medium text-dark400_light800"
         />
       </div>
+      <div className="markdown w-full min-w-full">
+        <ParselHTML data={question.content} />
+      </div>
 
-      <ParselHTML data={question.content} />
       <div className="mt-8 flex flex-wrap gap-2">
         {question.tags.map((tag: any) => (
           <RenderTag
