@@ -13,7 +13,7 @@ import {
   UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
-import { FilterQuery, Types } from "mongoose";
+import { FilterQuery } from "mongoose";
 import Question from "@/database/questions.model";
 import Tag from "@/database/tag.model";
 import Answer from "@/database/answer.model";
