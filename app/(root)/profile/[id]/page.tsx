@@ -17,6 +17,7 @@ const ProfileDetails = async ({ params, searchParams }: URLProps) => {
   const { user, totalQuestions, totalAnswers } = await getUserInfo({
     userId: params.id,
   });
+
   return (
     <>
       <div className="flex flex-col-reverse items-start justify-between sm:flex-row">
@@ -34,10 +35,10 @@ const ProfileDetails = async ({ params, searchParams }: URLProps) => {
               @{user.username}
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-start gap-5">
-              {user.portfoliowebsite && (
+              {user.portfolioWebSite && (
                 <ProfileLink
                   imgUrl="/assets/icons/link.svg"
-                  href={user.portfoliowebsite}
+                  href={user.portfolioWebSite}
                   title="Portfolio"
                 />
               )}

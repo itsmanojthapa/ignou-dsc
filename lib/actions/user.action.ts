@@ -13,7 +13,7 @@ import {
   UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
-import { FilterQuery } from "mongoose";
+import { FilterQuery, Types } from "mongoose";
 import Question from "@/database/questions.model";
 import Tag from "@/database/tag.model";
 import Answer from "@/database/answer.model";
@@ -51,7 +51,9 @@ export const updateUser = async (params: UpdateUserParams) => {
     connectToDatabase();
 
     const { clerkId, updateData, path } = params;
-    await User.findByIdAndUpdate({ clerkId }, updateData, {
+    console.log(updateData);
+
+    await User.findOneAndUpdate({ clerkId }, updateData, {
       new: true,
     });
 
