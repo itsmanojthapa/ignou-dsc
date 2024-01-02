@@ -66,7 +66,7 @@ function QuestionCard({
         {author && (
           <Metric
             href={`/profile/${author._id}`}
-            imgUrl={"/assets/icons/avatar.svg"}
+            imgUrl={author.picture}
             alt="user"
             value={author.name}
             isAuthor
