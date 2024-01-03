@@ -12,7 +12,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const QuestionDetails = async ({ params }: { params: any }) => {
+interface QuestionDetailsProps {
+  params: {
+    id: string;
+  };
+  searchParams: { [key: string]: string | undefined };
+}
+const QuestionDetails = async ({
+  params,
+  searchParams,
+}: QuestionDetailsProps) => {
   const question = await getQuestionById({ questionId: params.id });
   const { userId: clerkId } = auth();
   let mongoUser;
@@ -96,6 +105,8 @@ const QuestionDetails = async ({ params }: { params: any }) => {
         questionId={question._id}
         userId={JSON.stringify(mongoUser._id)}
         totalAnswers={question.answers.length}
+        page={searchParams?.page}
+        filter={searchParams?.filter}
       />
       <Answer
         question={question.content}
