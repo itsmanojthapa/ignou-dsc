@@ -1,7 +1,7 @@
 import UserCard from "@/components/cards/UserCardProps";
 import Filter from "@/components/shared/Filter/Filter";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
-import { HomePageFilters } from "@/constants/filters";
+import { UserFilters } from "@/constants/filters";
 import { getAllUsers } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import React from "react";
 const Community = async ({ searchParams }: SearchParamsProps) => {
   const { users } = await getAllUsers({
     searchQuery: searchParams?.q,
+    filter: searchParams?.filter,
   });
   return (
     <div>
@@ -23,7 +24,7 @@ const Community = async ({ searchParams }: SearchParamsProps) => {
           otherClasses="flex-1"
         />
         <Filter
-          filters={HomePageFilters}
+          filters={UserFilters}
           otherClasses="min-h-[56px] sm:min-w-[170px]"
         />
       </div>
