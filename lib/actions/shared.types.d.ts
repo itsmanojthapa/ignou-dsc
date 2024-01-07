@@ -52,6 +52,7 @@ export interface GetAllTagsParams {
   pageSize?: number;
   filter?: string;
   searchQuery?: string;
+  userId?: string;
 }
 
 export interface GetQuestionByIdParams {

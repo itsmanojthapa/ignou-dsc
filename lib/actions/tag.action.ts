@@ -44,7 +44,11 @@ export const getAllTags = async (params: GetAllTagsParams) => {
     connectToDatabase();
 
     // const { page, filter, pageSize, searchQuery } = params;
-    const { searchQuery, filter } = params;
+    const {
+      searchQuery,
+      filter,
+      // userId
+    } = params;
 
     const query: FilterQuery<typeof Tag> = {};
 

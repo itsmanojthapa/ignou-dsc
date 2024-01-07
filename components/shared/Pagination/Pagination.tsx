@@ -31,7 +31,7 @@ const Pagination = ({ pageNumber, isNext }: Props) => {
         <p className="body-medium text-dark200_light800">Prev</p>
       </Button>
       <div>
-        <p>5</p>
+        <p>{pageNumber}</p>
       </div>
       <Button
         disabled={!isNext}
