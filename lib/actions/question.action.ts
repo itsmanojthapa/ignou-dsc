@@ -37,7 +37,7 @@ export const getQuestions = async (params: GetQuestionsParams) => {
 
     let sortOptions = {};
 
-    console.log(filter);
+    // console.log(filter);
 
     switch (filter) {
       case "newest":

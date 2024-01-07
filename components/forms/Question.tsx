@@ -54,7 +54,7 @@ const Question = ({ mongoUserId, type, questionData }: QuestionProps) => {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof questionsSchema>) {
     setIsSubmitting(true);
-    console.log(values);
+    // console.log(values);
 
     try {
       // todo: make async call to our api -> to create a question
