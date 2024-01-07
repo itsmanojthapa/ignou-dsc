@@ -8,12 +8,16 @@ import NoResult from "@/components/shared/NoResult/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
 import { getQuestions } from "@/lib/actions/question.action";
 import { SearchParamsProps } from "@/types";
+import Pagination from "@/components/shared/Pagination/Pagination";
 
 export default async function Home({ searchParams }: SearchParamsProps) {
   const result = await getQuestions({
     searchQuery: searchParams?.q,
     filter: searchParams?.filter,
+    page: searchParams?.page ? +searchParams?.page : 1,
   });
+
+  const pageNumber = searchParams?.page ? +searchParams?.page : 1;
 
   // Todo: Fetch Recomended Questions
 
@@ -67,6 +71,9 @@ export default async function Home({ searchParams }: SearchParamsProps) {
             linkTitle="Ask a Question"
           />
         )}
+      </div>
+      <div className="mt-10">
+        <Pagination pageNumber={pageNumber} isNext={result.isNext} />
       </div>
     </>
   );
