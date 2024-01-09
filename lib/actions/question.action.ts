@@ -53,6 +53,7 @@ export const getQuestions = async (params: GetQuestionsParams) => {
         break;
 
       default:
+        sortOptions = { createdAt: -1 };
         break;
     }
 
@@ -85,7 +86,7 @@ export const createQuestion = async (params: CreateQuestionParams) => {
   try {
     // connect to DATABASE
     connectToDatabase();
-    const { title, content, tags, author } = params;
+    const { title, content, tags, author, path } = params;
 
     // create a new question
     const question = await Question.create({
@@ -117,8 +118,17 @@ export const createQuestion = async (params: CreateQuestionParams) => {
     });
 
     // create a interaction record for the user's ask question action
+    await Interaction.create({
+      user: author,
+      question: question._id,
+      action: "ask-question",
+      tags: tagDocuments,
+    });
 
     // increament author reputation by +5 points for creating a question
+    await User.findByIdAndUpdate(author, { $inc: { reputation: 5 } });
+
+    revalidatePath(path);
   } catch (error) {}
 };
 
@@ -171,11 +181,17 @@ export const upvoteQuestion = async (params: QuestionVoteParams) => {
       throw new Error("No question found");
     }
 
-    // Todo: increment author's reputation
+    // Increment author's reputation by +1/-1 for upvoting/revoking an upvote to the question
+    await User.findByIdAndUpdate(userId, {
+      $inc: { reputation: hasupVoted ? -1 : 1 },
+    });
+
+    // Increment user's reputation by +10/-10 for recieving and upvote/revoking an upvote to the question
+    await User.findByIdAndUpdate(question.author, {
+      $inc: { reputation: hasupVoted ? -10 : 10 },
+    });
 
     revalidatePath(path);
-
-    // get user by id
   } catch (error) {
     console.log(error);
     throw error;
@@ -207,11 +223,16 @@ export const downVoteQuestion = async (params: QuestionVoteParams) => {
       throw new Error("No question found");
     }
 
-    // Todo: increment author's reputation
+    // Todo: decrement author's reputation
+    await User.findByIdAndUpdate(userId, {
+      $inc: { reputation: hasupVoted ? -2 : 2 },
+    });
+
+    await User.findByIdAndUpdate(question.author, {
+      $inc: { reputation: hasupVoted ? -10 : 10 },
+    });
 
     revalidatePath(path);
-
-    // get user by id
   } catch (error) {
     console.log(error);
     throw error;

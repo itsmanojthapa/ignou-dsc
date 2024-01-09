@@ -31,7 +31,7 @@ const Pagination = ({ pageNumber, isNext }: Props) => {
         <p className="body-medium text-dark200_light800">Prev</p>
       </Button>
       <div className="flex min-h-[30px] items-center justify-center rounded-md bg-primary-500 px-3.5 py-3">
-        <p className="body-medium text-dark200_light800">{pageNumber}</p>
+        <p className="body-medium text-white">{pageNumber}</p>
       </div>
       <Button
         disabled={!isNext}
