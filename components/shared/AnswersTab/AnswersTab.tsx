@@ -20,6 +20,7 @@ const AnswersTab = async ({
   });
 
   const pageNumber = searchParams?.page ? +searchParams.page : 1;
+
   return (
     <>
       {userAnswers.map((answer) => (

@@ -14,9 +14,10 @@ import React from "react";
 
 const ProfileDetails = async ({ params, searchParams }: URLProps) => {
   const { userId: clerkId } = auth();
-  const { user, totalQuestions, totalAnswers } = await getUserInfo({
-    userId: params.id,
-  });
+  const { user, totalQuestions, totalAnswers, badgeCounts, reputation } =
+    await getUserInfo({
+      userId: params.id,
+    });
 
   return (
     <>
@@ -72,7 +73,12 @@ const ProfileDetails = async ({ params, searchParams }: URLProps) => {
           </SignedIn>
         </div>
       </div>
-      <Stats totalQuestions={totalQuestions} totalAnswers={totalAnswers} />
+      <Stats
+        totalQuestions={totalQuestions}
+        totalAnswers={totalAnswers}
+        reputation={reputation}
+        badges={badgeCounts}
+      />
       <div className="mt-10 flex gap-10">
         <Tabs defaultValue="top-posts" className="flex-1">
           <TabsList className="background-light800_dark400 min-h-[42px] p-1">
