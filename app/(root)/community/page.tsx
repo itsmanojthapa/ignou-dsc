@@ -15,6 +15,8 @@ const Community = async ({ searchParams }: SearchParamsProps) => {
     page: searchParams?.page ? +searchParams.page : 1,
   });
 
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const pageNumber = searchParams?.page ? +searchParams?.page : 1;
   return (
     <div>
