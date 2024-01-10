@@ -22,6 +22,7 @@ import { questionsSchema } from "@/lib/validation";
 import { createQuestion, editQuestion } from "@/lib/actions/question.action";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "@/context/ThemeProvider";
+import { toast } from "../ui/use-toast";
 
 interface QuestionProps {
   type?: string;
@@ -66,6 +67,10 @@ const Question = ({ mongoUserId, type, questionData }: QuestionProps) => {
           path: pathname,
         });
         router.push(`/question/${questionDetails._id}`);
+        toast({
+          title: `Question Edited `,
+          description: "Your question has been edited successfully",
+        });
       } else {
         // contain all form data
         await createQuestion({
@@ -75,6 +80,12 @@ const Question = ({ mongoUserId, type, questionData }: QuestionProps) => {
           author: JSON.parse(mongoUserId),
           path: pathname,
         });
+
+        toast({
+          title: `Question posted successfully`,
+          description: "Your question has been added successfully",
+        });
+
         // after question create navigate to home page
         router.push("/");
       }

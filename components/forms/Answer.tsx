@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { createAnswer } from "@/lib/actions/answer.action";
 import { usePathname } from "next/navigation";
+import { toast } from "../ui/use-toast";
 
 interface Props {
   question: string;
@@ -46,6 +47,11 @@ const Answer = ({ question, questionId, authorId }: Props) => {
         author: JSON.parse(authorId),
         question: JSON.parse(questionId),
         path: pathname,
+      });
+
+      toast({
+        title: `${values.answer && "Answer posted"}`,
+        description: "Your answer has been posted successfully",
       });
 
       form.reset();
@@ -85,9 +91,20 @@ const Answer = ({ question, questionId, authorId }: Props) => {
   //     //   const editor = editorRef.current as any;
   //     //   editor.setContent(formatedAnswer);
   //     // }
+
+  //  toast notification
+  // return toast({
+  //   title: `${aiAnswer.reply && 'Ai answer generated'}`,
+  //   description: 'Ai answer generated successfully'
+  // });
   //   } catch (error) {
   //     console.log(error);
   //     throw error;
+  // return toast({
+  //   title: `${error?.message}`,
+  //   variant: 'destructive',
+  //   description: `${error?.code}`
+  // });
   //   } finally {
   //     setIsSubmittingAI(false);
   //   }
