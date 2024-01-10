@@ -3,6 +3,13 @@ import { getUserById } from "@/lib/actions/user.action";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "IGNOU-DSC — Dev. Student Social Platform🚀🚀",
+  description: "Edit quesiton page of IGNOU-DSC",
+};
+
 const AskQuestion = async () => {
   const { userId } = auth();
   if (!userId) redirect("/sign-in");

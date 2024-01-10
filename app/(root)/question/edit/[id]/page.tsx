@@ -4,6 +4,13 @@ import { auth } from "@clerk/nextjs";
 import { ParamsProps } from "@/types";
 import Question from "@/components/forms/Question";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Edit Question| IGNOU-DSC",
+  description: "Edit Question page of IGNOU-DSC",
+};
+
 const EditQuestion = async ({ params }: ParamsProps) => {
   const { userId } = auth();
   if (!userId) return null;

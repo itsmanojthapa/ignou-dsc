@@ -12,6 +12,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Question details | IGNOU-DSC",
+  description: "Question page page of IGNOU-DSC",
+};
+
 interface QuestionDetailsProps {
   params: {
     id: string;
