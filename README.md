@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IGNOU DSC (IGNOU DEVELOPER STUDENT CLUB) Website
+
+Welcome to the IGNOU Developer Student Club Social Media Community Q&A Platform! 🚀 Join our vibrant community of tech enthusiasts and aspiring developers at IGNOU. 🎓💻 Engage in insightful discussions, seek guidance on coursework, and collaborate on exciting projects. 🤝🌐 Whether you're a seasoned coder or just starting your programming journey, this is the place to share knowledge, ask questions, and connect with like-minded peers. Let's code, learn, and grow together!
+
+## Project Overview
+
+- **Repository:** [https://github.com/itsmanojthapa/ignou-dsc](https://github.com/itsmanojthapa/ignou-dsc)
+- **Live Demo:** [https://ignou-dsc.vercel.app/](https://ignou-dsc.vercel.app/)
+
+![IGNOU DSC](https://github.com/itsmanojthapa/ignou-dsc/blob/main/public/assets/images/ignou-dsc.png)
+
+## Features
+
+- **Post Questions and Answers:** Foster a collaborative learning environment by allowing users to post questions and provide answers.
+- **Vote System:** Users can vote questions and answers up or down to indicate their relevance or helpfulness.
+- **Bookmark Questions:** Bookmark questions for quick access to important topics.
+- **Tags:** Categorize questions with tags for easy navigation and organization.
+- **Medal System:** Implement a medal system to encourage higher activity and recognize valuable contributions.
+- **Auto-Generated Answers:** Utilize the ChatGPT API to provide auto-generated answers for common queries, enhancing user experience and knowledge accessibility.
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the Repository:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   git clone https://github.com/itsmanojthapa/ignou-dsc.git
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   cd ignou-dsc
+   yarn install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. **Run the Application:**
 
-## Learn More
+   ```bash
+   yarn dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- TypeScript
+- Next.js
+- Node.js
+- MongoDB
+- Zod.js
+- Tailwind CSS
+- Clerk/NextJS
+- Shadcn/ui
+- ChatGPT API
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome contributions from the community! If you'd like to contribute 🚀
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Bug Reporting
+
+If you encounter any bugs or issues, please create an issue.
+
+---
+
+Thank you for using IGNOU DSC! If you have any questions or suggestions, feel free to reach out. Happy learning! 📚
