@@ -52,15 +52,17 @@ function AnswerCard({
         </SignedIn>
 
         <div className="flex-between mt-6 w-full flex-wrap gap-3">
-          <Metric
-            imgUrl={author.picture}
-            alt="user avatar"
-            value={author.name}
-            title={` • asked ${getTimeStamp(createdAt)}`}
-            href={`/profile/${author.clerkId}`}
-            textStyles="body-medium text-dark400_light700"
-            isAuthor
-          />
+          <div className="flex-center gap-3">
+            <Metric
+              imgUrl={author.picture}
+              alt="user avatar"
+              value={author.name}
+              title={` • asked ${getTimeStamp(createdAt)}`}
+              href={`/profile/${author.clerkId}`}
+              textStyles="body-medium text-dark400_light700"
+              isAuthor
+            />
+          </div>
 
           <div className="flex-center gap-3">
             <Metric

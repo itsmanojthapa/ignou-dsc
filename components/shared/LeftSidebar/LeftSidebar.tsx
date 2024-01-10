@@ -13,7 +13,7 @@ function LeftSidebar() {
   const { userId } = useAuth();
 
   return (
-    <section className="background-light900_dark200 custom-scrollbar light-border sticky left-0 top-0 flex h-screen  flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
+    <section className="background-light900_dark200 custom-scrollbar light-border sticky left-0 top-0 flex h-screen  flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
       <div className="flex flex-1 flex-col gap-8">
         {sidebarLinks.map((link) => {
           const isActive =
@@ -79,21 +79,23 @@ function LeftSidebar() {
                 height={24}
                 className="invert-colors lg:hidden"
               />
-              <span className=" max-lg:hidden">Sign up</span>
+              <span className="max-lg:hidden max-lg:w-[120px]">Sign up</span>
             </Button>
           </Link>
         </div>
       </SignedOut>
       <SignedIn>
-        <Button className="text-dark300_light900 primary-gradient flex items-center  gap-4 rounded-lg  p-4 ">
-          <Image
-            src="/assets/icons/arrow-left.svg"
-            alt="arrowLeft"
-            width={24}
-            height={24}
-          />
-          <SignOutButton />
-        </Button>
+        <SignOutButton>
+          <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+            <Image
+              src="/assets/icons/arrow-left.svg"
+              alt="arrowLeft"
+              width={24}
+              height={24}
+            />
+            <div className="max-lg:hidden max-lg:w-[120px]">Sign out</div>
+          </Button>
+        </SignOutButton>
       </SignedIn>
     </section>
   );

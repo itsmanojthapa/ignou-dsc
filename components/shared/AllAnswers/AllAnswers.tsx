@@ -56,7 +56,7 @@ const AllAnswers = async ({
                   />
                   <div className="flex flex-col sm:flex-row sm:items-center">
                     <p className="body-semibold text-dark300_light700">
-                      {answer.author.name}{" "}
+                      {answer.author.name}
                     </p>
                     <p className="small-regular text-light400_light500 ml-2 mt-0.5 line-clamp-1">
                       answered {getTimeStamp(answer.createdAt)}
@@ -77,7 +77,9 @@ const AllAnswers = async ({
                 </div>
               </div>
             </div>
-            <ParseHTML data={answer.content} />
+            <div className="markdown w-full min-w-full">
+              <ParseHTML data={answer.content} />
+            </div>
           </article>
         ))}
       </div>
