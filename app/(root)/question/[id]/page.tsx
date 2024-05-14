@@ -55,16 +55,18 @@ const QuestionDetails = async ({
           </Link>
           {/*  VOTING */}
           <div className="flex justify-end">
-            <Votes
-              type="Question"
-              itemId={JSON.stringify(question._id)}
-              userId={JSON.stringify(mongoUser._id)}
-              upvotes={question.upvotes.length}
-              hasupVoted={question.upvotes.includes(mongoUser._id)}
-              downvotes={question.downvotes.length}
-              hasdownVoted={question.downvotes.includes(mongoUser._id)}
-              hasSaved={mongoUser?.saved.includes(question._id)}
-            />
+            {mongoUser && (
+              <Votes
+                type="Question"
+                itemId={JSON.stringify(question._id)}
+                userId={JSON.stringify(mongoUser._id)}
+                upvotes={question.upvotes.length}
+                hasupVoted={question.upvotes.includes(mongoUser._id)}
+                downvotes={question.downvotes.length}
+                hasdownVoted={question.downvotes.includes(mongoUser._id)}
+                hasSaved={mongoUser?.saved.includes(question._id)}
+              />
+            )}
           </div>
         </div>
         <h2 className="h2-semibold text-dark200_light900 mt-3.5 w-full text-left">
@@ -108,18 +110,22 @@ const QuestionDetails = async ({
           />
         ))}
       </div>
-      <AllAnswers
-        questionId={question._id}
-        userId={JSON.stringify(mongoUser._id)}
-        totalAnswers={question.answers.length}
-        page={searchParams?.page}
-        filter={searchParams?.filter}
-      />
-      <Answer
-        question={question.content}
-        questionId={JSON.stringify(question._id)}
-        authorId={JSON.stringify(mongoUser._id)}
-      />
+      {mongoUser && (
+        <>
+          <AllAnswers
+            questionId={question._id}
+            userId={JSON.stringify(mongoUser._id)}
+            totalAnswers={question.answers.length}
+            page={searchParams?.page}
+            filter={searchParams?.filter}
+          />
+          <Answer
+            question={question.content}
+            questionId={JSON.stringify(question._id)}
+            authorId={JSON.stringify(mongoUser._id)}
+          />
+        </>
+      )}
     </>
   );
 };
