@@ -57,12 +57,4 @@ export const POST = async (request: Request) => {
   //       error: error.message,
   //     });
   //   }
-  console.log("yes sir");
-
-  return "hell-world";
-};
-export const GET = async (request: Request) => {
-  console.log("YES SIR");
-
-  return "HELLO-WORLD";
 };
