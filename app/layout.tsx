@@ -58,7 +58,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${inter.className} ${spaceGrotest.variable}`}>
+        className={`${inter.variable} ${inter.className} ${spaceGrotest.variable} `}
+        id="mainApp">
         <ClerkProvider
           appearance={{
             elements: {
