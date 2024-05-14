@@ -7,7 +7,7 @@ Welcome to the IGNOU Developer Student Club Social Media Community Q&A Platform!
 - **Repository:** [https://github.com/itsmanojthapa/ignou-dsc](https://github.com/itsmanojthapa/ignou-dsc)
 - **Live Demo:** [https://ignou-dsc.vercel.app/](https://ignou-dsc.vercel.app/)
 
-![IGNOU DSC](https://github.com/itsmanojthapa/ignou-dsc/blob/main/public/assets/images/ignou-dsc.png)
+<!-- ![IGNOU DSC](https://github.com/itsmanojthapa/ignou-dsc/blob/main/public/assets/images/ignou-dsc.png) -->
 
 ## Features
 
