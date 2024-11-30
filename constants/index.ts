@@ -1,4 +1,18 @@
+import { cn } from "@/lib/utils";
 import { SidebarLink } from "@/types";
+
+import {
+  Brain,
+  MessageSquare,
+  Search,
+  Settings,
+  Database,
+  HelpCircle,
+  Star,
+  Archive,
+  Plus,
+} from "lucide-react";
+import { text } from "stream/consumers";
 
 export const themes = [
   { value: "light", label: "Light", icon: "/assets/icons/sun.svg" },
@@ -9,31 +23,43 @@ export const themes = [
 export const sidebarLinks: SidebarLink[] = [
   {
     imgURL: "/assets/icons/home.svg",
+    color: "white",
     route: "/",
     label: "Home",
   },
   {
-    imgURL: "/assets/icons/users.svg",
+    imgURL: Search,
+    color: "text-purple-500",
+    route: "/search",
+    label: "Search",
+  },
+  {
+    imgURL: Star,
+    color: "text-yellow-500",
     route: "/community",
     label: "Community",
   },
   {
     imgURL: "/assets/icons/star.svg",
+    color: "text-yellow-500",
     route: "/collection",
-    label: "Collections",
+    label: "Collection",
   },
   {
     imgURL: "/assets/icons/tag.svg",
+    color: "white",
     route: "/tags",
     label: "Tags",
   },
   {
     imgURL: "/assets/icons/user.svg",
+    color: "white",
     route: "/profile",
     label: "Profile",
   },
   {
     imgURL: "/assets/icons/question.svg",
+    color: "white",
     route: "/ask-question",
     label: "Ask a question",
   },

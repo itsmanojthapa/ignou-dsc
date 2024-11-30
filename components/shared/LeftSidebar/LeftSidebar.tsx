@@ -7,14 +7,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
 
 function LeftSidebar() {
   const pathname = usePathname();
   const { userId } = useAuth();
 
   return (
-    <section className="background-light900_dark200 custom-scrollbar light-border sticky left-0 top-0 flex h-screen  flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
-      <div className="flex flex-1 flex-col gap-8">
+    <section className="custom-scrollbar  sticky left-0 top-0 flex h-screen flex-col justify-between  overflow-y-auto  bg-black p-2 pt-4 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
+      <div className="flex flex-1 flex-col gap-1 ">
+        <div className="px-3 pb-10">
+          <Link href="/">
+            <Image
+              src={"/assets/images/logo.png"}
+              width={150}
+              height={150}
+              alt="IGNOU-DSC"
+            />
+          </Link>
+        </div>
+
         {sidebarLinks.map((link) => {
           const isActive =
             pathname === link.route ||
@@ -35,25 +47,30 @@ function LeftSidebar() {
               className={`${
                 isActive
                   ? "primary-gradient rounded-lg text-light-900"
-                  : "text-dark300_light900"
-              } flex-start cursor-pointer gap-4 bg-transparent p-4 `}>
-              <Image
-                src={link.imgURL}
-                alt={link.label}
-                width={24}
-                height={24}
-                className={`${isActive ? "" : "invert-colors"}`}
-              />
+                  : "text-light-900"
+              } flex-start cursor-pointer gap-4 rounded-lg bg-transparent p-4 text-sm hover:bg-slate-800`}>
+              {typeof link.imgURL === "string" ? (
+                <Image
+                  src={link.imgURL}
+                  alt={link.label}
+                  width={18}
+                  height={18}
+                  className={`${link.color}`}
+                />
+              ) : (
+                <link.imgURL size={18} className={`${link.color}`} />
+              )}
               <p
                 className={`${
                   isActive ? "base-bold" : "base-medium"
-                } max-lg:hidden`}>
+                } text-sm  max-lg:hidden`}>
                 {link.label}
               </p>
             </Link>
           );
         })}
       </div>
+      <ThemeToggle />
       <SignedOut>
         <div className="flex flex-col gap-3 pt-3">
           <Link href="/sign-in">

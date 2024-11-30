@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: SearchParamsProps) {
   // Todo: Fetch Recomended Questions
 
   return (
-    <>
+    <div className="">
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
         <Link href={"/ask-question"} className="flex justify-end max-sm:w-full">
@@ -72,9 +72,9 @@ export default async function Home({ searchParams }: SearchParamsProps) {
           />
         )}
       </div>
-      <div className="mt-10">
+      <div className="p-10">
         <Pagination pageNumber={pageNumber} isNext={result.isNext} />
       </div>
-    </>
+    </div>
   );
 }

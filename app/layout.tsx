@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "TechCommunity",
     "TechCommunity",
   ],
-  themeColor: "linear-gradient(129deg, #2563eb 0%, #7c3aed 100%)",
+  // themeColor: "linear-gradient(129deg, #2563eb 0%, #7c3aed 100%)",
   // openGraph: {
   //   type: "website",
   //   url: "https://ignou-dsc.vercel.app/",

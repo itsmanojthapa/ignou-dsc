@@ -1,7 +1,9 @@
 import { BADGE_CRITERIA } from "@/constants";
+import { ReactComponentElement } from "react";
 
 export interface SidebarLink {
-  imgURL: string;
+  imgURL: string | ReactComponentElement;
+  color: string;
   route: string;
   label: string;
 }
