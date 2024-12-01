@@ -7,6 +7,7 @@ import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import "@/styles/prism.css";
 import ThemeProvider from "@/context/ThemeProvider";
+import RecoilContextProvider from "./RecoilProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,15 +61,18 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${inter.className} ${spaceGrotest.variable} `}
         id="mainApp">
-        <ClerkProvider
-          appearance={{
-            elements: {
-              formButtonPrimary: "primary-gradient",
-              footerActionLink: "primary-text-gradient hover:text-primary-500",
-            },
-          }}>
-          <ThemeProvider>{children}</ThemeProvider>
-        </ClerkProvider>
+        <ThemeProvider>
+          <ClerkProvider
+            appearance={{
+              elements: {
+                formButtonPrimary: "primary-gradient",
+                footerActionLink:
+                  "primary-text-gradient hover:text-primary-500",
+              },
+            }}>
+            <RecoilContextProvider>{children}</RecoilContextProvider>
+          </ClerkProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

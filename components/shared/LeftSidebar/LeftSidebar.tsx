@@ -8,10 +8,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
+import { ChevronLeft, Search } from "lucide-react";
+import { useRecoilState } from "recoil";
+import { openAtom } from "@/lib/state/atom";
 
 function LeftSidebar() {
   const pathname = usePathname();
   const { userId } = useAuth();
+
+  const [open, setOpen] = useRecoilState(openAtom);
 
   return (
     <section className="custom-scrollbar  sticky left-0 top-0 flex h-screen flex-col justify-between  overflow-y-auto  bg-black p-2 pt-4 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
@@ -26,6 +31,15 @@ function LeftSidebar() {
             />
           </Link>
         </div>
+
+        <button
+          onClick={() => {
+            setOpen(!open);
+          }}
+          className="flex cursor-pointer gap-4 rounded-lg p-4 hover:bg-slate-800">
+          <Search color="red" size={18} />
+          <p className="base-medium text-sm text-light-900 max-lg:hidden">⌘K</p>
+        </button>
 
         {sidebarLinks.map((link) => {
           const isActive =
@@ -94,19 +108,20 @@ function LeftSidebar() {
           </Link>
         </div>
       </SignedOut>
-      {/* <SignedIn>
+      <SignedIn>
         <SignOutButton>
-          <Button className="small-medium light-border-2 btn-tertiary min-h-[41px] w-full rounded-lg px-4 py-3 text-light-900 shadow-none">
-            <Image
+          <Button className="small-medium light-border-2 min-h-[41px]  w-full rounded-lg bg-dark-400 px-4 py-3 text-light-900 shadow-none">
+            <ChevronLeft />
+            {/* <Image
               src="/assets/icons/arrow-left.svg"
               alt="arrowLeft"
               width={24}
               height={24}
-            />
+            /> */}
             <div className="max-lg:hidden max-lg:w-[120px]">Sign out</div>
           </Button>
         </SignOutButton>
-      </SignedIn> */}
+      </SignedIn>
       <ThemeToggle />
     </section>
   );

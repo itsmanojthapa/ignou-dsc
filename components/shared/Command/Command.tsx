@@ -1,11 +1,12 @@
 "use client";
 
 import * as React from "react";
-
+import { useRecoilState } from "recoil";
 import GlobalSearch from "../search/GlobalSearch";
+import { openAtom } from "@/lib/state/atom";
 
 export function CommandCard() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useRecoilState(openAtom);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -28,10 +29,8 @@ export function CommandCard() {
       className={` absolute left-1/2 top-10  h-1/2 w-full max-w-2xl -translate-x-1/2 
       overflow-auto rounded-lg border p-3 shadow-md backdrop-blur-sm ${
         !open && "hidden"
-      } flex items-center justify-center`}>
-      <div className="h-full w-full">
-        <GlobalSearch />
-      </div>
+      }`}>
+      <GlobalSearch />
     </div>
   );
 }

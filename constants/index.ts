@@ -1,19 +1,5 @@
-import { cn } from "@/lib/utils";
 import { SidebarLink } from "@/types";
-
-import {
-  Brain,
-  MessageSquare,
-  Search,
-  Database,
-  User,
-  Star,
-  Archive,
-  FileQuestion,
-  Tag,
-  Home,
-} from "lucide-react";
-import { text } from "stream/consumers";
+import { Database, User, Star, FileQuestion, Tag, Home } from "lucide-react";
 
 export const themes = [
   { value: "light", label: "Light", icon: "/assets/icons/sun.svg" },
@@ -27,12 +13,6 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/",
     label: "Home",
     color: "lime",
-  },
-  {
-    imgURL: Search,
-    route: "",
-    label: "⌘K",
-    color: "red",
   },
   {
     imgURL: Star,

@@ -5,9 +5,13 @@ import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { TagFilters } from "@/constants/filters";
 import { getAllTags } from "@/lib/actions/tag.action";
 import { SearchParamsProps } from "@/types";
+import { auth } from "@clerk/nextjs";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const Tags = async ({ searchParams }: SearchParamsProps) => {
+  const { userId } = auth();
+  if (!userId) redirect("/sign-in");
   const { tags, isNext } = await getAllTags({
     searchQuery: searchParams?.q,
     filter: searchParams?.filter,
