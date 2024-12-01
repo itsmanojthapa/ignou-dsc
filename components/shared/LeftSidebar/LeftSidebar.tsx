@@ -19,7 +19,7 @@ function LeftSidebar() {
   const [open, setOpen] = useRecoilState(openAtom);
 
   return (
-    <section className="custom-scrollbar  sticky left-0 top-0 flex h-screen flex-col justify-between  overflow-y-auto  bg-black p-2 pt-4 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
+    <aside className="custom-scrollbar  sticky left-0 top-0 flex h-screen flex-col justify-between  overflow-y-auto  bg-black p-2 pt-4 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
       <div className="flex flex-1 flex-col gap-1 ">
         <div className="px-3 pb-10">
           <Link href="/">
@@ -123,7 +123,7 @@ function LeftSidebar() {
         </SignOutButton>
       </SignedIn>
       <ThemeToggle />
-    </section>
+    </aside>
   );
 }
 
