@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+// import { Moon, Sun } from "lucide-react";
 
 import { useTheme } from "@/context/ThemeProvider";
 import { cn } from "@/lib/utils";
@@ -11,7 +11,7 @@ export function ThemeToggle() {
   const { mode, setMode } = useTheme();
 
   return (
-    <div className="mb-2 flex justify-around gap-1  rounded-lg bg-dark-400 p-1 align-middle">
+    <div className="my-3 flex justify-around gap-1  rounded-lg bg-dark-400 p-1 align-middle">
       {themes
         .filter((item) => item.value !== "system") // Exclude "system" items
         .map((item) => (

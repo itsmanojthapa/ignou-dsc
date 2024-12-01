@@ -5,12 +5,13 @@ import {
   Brain,
   MessageSquare,
   Search,
-  Settings,
   Database,
-  HelpCircle,
+  User,
   Star,
   Archive,
-  Plus,
+  FileQuestion,
+  Tag,
+  Home,
 } from "lucide-react";
 import { text } from "stream/consumers";
 
@@ -22,46 +23,47 @@ export const themes = [
 
 export const sidebarLinks: SidebarLink[] = [
   {
-    imgURL: "/assets/icons/home.svg",
-    color: "white",
+    imgURL: Home,
     route: "/",
     label: "Home",
+    color: "lime",
   },
   {
     imgURL: Search,
-    color: "text-purple-500",
-    route: "/search",
-    label: "Search",
+    route: "",
+    label: "⌘K",
+    color: "red",
   },
   {
     imgURL: Star,
-    color: "text-yellow-500",
     route: "/community",
     label: "Community",
+
+    color: "purple",
   },
   {
-    imgURL: "/assets/icons/star.svg",
-    color: "text-yellow-500",
+    imgURL: Database,
     route: "/collection",
     label: "Collection",
+    color: "brown",
   },
   {
-    imgURL: "/assets/icons/tag.svg",
-    color: "white",
+    imgURL: Tag,
     route: "/tags",
     label: "Tags",
+    color: "teal",
   },
   {
-    imgURL: "/assets/icons/user.svg",
-    color: "white",
+    imgURL: User,
     route: "/profile",
     label: "Profile",
+    color: "orange",
   },
   {
-    imgURL: "/assets/icons/question.svg",
-    color: "white",
+    imgURL: FileQuestion,
     route: "/ask-question",
     label: "Ask a question",
+    color: "turquoise",
   },
 ];
 

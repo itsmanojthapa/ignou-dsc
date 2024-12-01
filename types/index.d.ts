@@ -1,11 +1,11 @@
 import { BADGE_CRITERIA } from "@/constants";
-import { ReactComponentElement } from "react";
+import React from "react";
 
 export interface SidebarLink {
-  imgURL: string | ReactComponentElement;
-  color: string;
+  imgURL: string | React.ComponentType;
   route: string;
   label: string;
+  color: string;
 }
 
 export interface URLProps {

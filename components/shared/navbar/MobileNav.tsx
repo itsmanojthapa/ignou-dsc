@@ -34,7 +34,7 @@ const NavContent = () => {
                   : "text-dark300_light900"
               }  flex items-center justify-start gap-4 bg-transparent p-4`}>
               <Image
-                src={link.imgURL}
+                src={link.imgURL as string}
                 alt={link.label}
                 height={20}
                 width={20}

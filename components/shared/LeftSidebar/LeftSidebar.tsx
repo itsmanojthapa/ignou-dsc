@@ -32,49 +32,44 @@ function LeftSidebar() {
             pathname === link.route ||
             (pathname.includes(link.route) && link.route.length > 1);
 
-          if (link.route === "/profile") {
-            if (userId) {
-              link.route = `/profile/${userId}`;
-            } else {
-              return null;
-            }
-          }
+          const finalRoute =
+            link.route === "/profile" && userId
+              ? `/profile/${userId}`
+              : link.route;
+
+          if (link.route === "/profile" && !userId) return null;
 
           return (
             <Link
               key={link.label}
-              href={link.route}
+              href={finalRoute}
               className={`${
-                isActive
-                  ? "primary-gradient rounded-lg text-light-900"
-                  : "text-light-900"
-              } flex-start cursor-pointer gap-4 rounded-lg bg-transparent p-4 text-sm hover:bg-slate-800`}>
-              {typeof link.imgURL === "string" ? (
-                <Image
-                  src={link.imgURL}
-                  alt={link.label}
-                  width={18}
-                  height={18}
-                  className={`${link.color}`}
-                />
-              ) : (
-                <link.imgURL size={18} className={`${link.color}`} />
-              )}
+                isActive && "primary-gradient"
+              } flex cursor-pointer gap-4 rounded-lg p-4 hover:bg-slate-800 ${
+                link.color
+              } `}>
+              <link.imgURL
+                // @ts-ignore
+                width={18}
+                height={18}
+                color={link.color}
+              />
+
               <p
-                className={`${
+                className={`text-light-900 ${
                   isActive ? "base-bold" : "base-medium"
-                } text-sm  max-lg:hidden`}>
+                } text-sm max-lg:hidden`}>
                 {link.label}
               </p>
             </Link>
           );
         })}
       </div>
-      <ThemeToggle />
+
       <SignedOut>
         <div className="flex flex-col gap-3 pt-3">
           <Link href="/sign-in">
-            <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+            <Button className="small-medium min-h-[41px]  w-full rounded-lg bg-dark-400 px-4 py-3 shadow-none">
               <Image
                 src="/assets/icons/account.svg"
                 alt="login"
@@ -82,13 +77,11 @@ function LeftSidebar() {
                 height={24}
                 className="invert-colors lg:hidden"
               />
-              <span className="primary-text-gradient max-lg:hidden">
-                Log In
-              </span>
+              <span className="text-light-900 max-lg:hidden">Log In</span>
             </Button>
           </Link>
           <Link href="/sign-up">
-            <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+            <Button className="small-medium light-border-2 min-h-[41px]  w-full rounded-lg bg-dark-400 px-4 py-3 text-light-900 shadow-none">
               <Image
                 src="/assets/icons/sign-up.svg"
                 alt="sign up"
@@ -101,9 +94,9 @@ function LeftSidebar() {
           </Link>
         </div>
       </SignedOut>
-      <SignedIn>
+      {/* <SignedIn>
         <SignOutButton>
-          <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+          <Button className="small-medium light-border-2 btn-tertiary min-h-[41px] w-full rounded-lg px-4 py-3 text-light-900 shadow-none">
             <Image
               src="/assets/icons/arrow-left.svg"
               alt="arrowLeft"
@@ -113,7 +106,8 @@ function LeftSidebar() {
             <div className="max-lg:hidden max-lg:w-[120px]">Sign out</div>
           </Button>
         </SignOutButton>
-      </SignedIn>
+      </SignedIn> */}
+      <ThemeToggle />
     </section>
   );
 }

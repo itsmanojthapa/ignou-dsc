@@ -11,7 +11,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {/* <Navbar /> */}
       <div className="flex">
         <LeftSidebar />
-
         <section
           style={{
             height: "calc(100vh - 50px)",
