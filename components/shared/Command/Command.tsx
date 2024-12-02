@@ -7,6 +7,7 @@ import { openAtom } from "@/lib/state/atom";
 
 export function CommandCard() {
   const [open, setOpen] = useRecoilState(openAtom);
+  const searchRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -20,12 +21,24 @@ export function CommandCard() {
         setOpen(false);
       }
     };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+
     document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", down);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   });
 
   return (
     <div
+      ref={searchRef}
       className={` absolute left-1/2 top-10  h-1/2 w-full max-w-2xl -translate-x-1/2 
       overflow-auto rounded-lg border p-3 shadow-md backdrop-blur-md ${
         !open && "hidden"
