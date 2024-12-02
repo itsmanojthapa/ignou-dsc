@@ -56,9 +56,9 @@ function GlobalSearch() {
 
   return (
     <div
-      className="relative w-full max-w-[600px] py-3 max-lg:hidden"
+      className="relative w-full max-w-[600px] py-3"
       ref={searchContainerRef}>
-      <div className="background-light800_darkgradient relative flex min-h-[50px] grow items-center gap-1 rounded-xl px-4 ">
+      <div className=" relative flex min-h-[50px] grow items-center gap-1 rounded-xl bg-slate-50 px-4">
         <Image
           src="/assets/icons/search.svg"
           alt="search"
@@ -79,7 +79,7 @@ function GlobalSearch() {
               setIsModalOpen(false);
             }
           }}
-          className="paragraph-regular text-dark400_light700 no-focus placeholder background-light800_darkgradient border-none shadow-none outline-none"
+          className="paragraph-regular text-dark400_light700 no-focus placeholder border-none bg-transparent shadow-none outline-none"
         />
       </div>
       {isModalOpen && <GlobalResult />}

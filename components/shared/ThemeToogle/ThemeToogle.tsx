@@ -11,7 +11,7 @@ export function ThemeToggle() {
   const { mode, setMode } = useTheme();
 
   return (
-    <div className="my-3 flex justify-around gap-1  rounded-lg bg-dark-400 p-1 align-middle">
+    <div className="my-[20px] flex justify-around gap-1  rounded-lg bg-dark-400 p-1 align-middle">
       {themes
         .filter((item) => item.value !== "system") // Exclude "system" items
         .map((item) => (

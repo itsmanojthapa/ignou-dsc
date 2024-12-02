@@ -22,14 +22,14 @@ export function CommandCard() {
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  });
 
   return (
     <div
       className={` absolute left-1/2 top-10  h-1/2 w-full max-w-2xl -translate-x-1/2 
-      overflow-auto rounded-lg border p-3 shadow-md backdrop-blur-sm ${
+      overflow-auto rounded-lg border p-3 shadow-md backdrop-blur-md ${
         !open && "hidden"
-      }`}>
+      } `}>
       <GlobalSearch />
     </div>
   );

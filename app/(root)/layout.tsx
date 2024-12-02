@@ -15,8 +15,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             width: "calc(100vw - 40px)",
             scrollbarWidth: "none",
           }}
-          className="m-[20px] flex w-full overflow-hidden rounded-3xl bg-white">
-          <div className="custom-scrollbar mx-auto w-full max-w-5xl overflow-y-scroll p-10">
+          className="mx-[20px] my-[25px] flex w-full overflow-hidden rounded-3xl bg-white dark:bg-slate-950">
+          <div className="custom-scrollbar w-full flex-1 overflow-y-scroll p-6 sm:p-10 lg:p-20">
             {children}
           </div>
           <RightSidebar />

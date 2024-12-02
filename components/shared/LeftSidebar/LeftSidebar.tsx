@@ -19,25 +19,25 @@ function LeftSidebar() {
   const [open, setOpen] = useRecoilState(openAtom);
 
   return (
-    <aside className="custom-scrollbar  sticky left-0 top-0 flex h-screen flex-col justify-between  overflow-y-auto  bg-black p-2 pt-4 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
-      <div className="flex flex-1 flex-col gap-1 ">
-        <div className="px-3 pb-10">
-          <Link href="/">
-            <Image
-              src={"/assets/images/logo.png"}
-              width={150}
-              height={150}
-              alt="IGNOU-DSC"
-            />
-          </Link>
-        </div>
-
+    <aside className="custom-scrollbar  sticky left-0 top-0 flex h-screen flex-col justify-center   overflow-y-auto  bg-black p-2 pt-4 shadow-light-300 dark:shadow-none max-lg:w-[120px] max-sm:hidden lg:w-[266px]">
+      <div className="px-3 pb-10">
+        <Link href="/">
+          <Image
+            src={"/assets/images/logo.png"}
+            width={150}
+            height={150}
+            className="sm:w-full"
+            alt="IGNOU-DSC"
+          />
+        </Link>
+      </div>
+      <div className="flex w-full flex-1 flex-col items-center gap-1 lg:items-start">
         <button
           onClick={() => {
             setOpen(!open);
           }}
-          className="flex cursor-pointer gap-4 rounded-lg p-4 hover:bg-slate-800">
-          <Search color="red" size={18} />
+          className="flex w-full cursor-pointer justify-center gap-4 rounded-lg p-4 hover:bg-slate-800  lg:justify-start">
+          <Search color="red" size={20} />
           <p className="base-medium text-sm text-light-900 max-lg:hidden">⌘K</p>
         </button>
 
@@ -59,13 +59,13 @@ function LeftSidebar() {
               href={finalRoute}
               className={`${
                 isActive && "primary-gradient"
-              } flex cursor-pointer gap-4 rounded-lg p-4 hover:bg-slate-800 ${
+              } flex w-full cursor-pointer justify-center gap-4 rounded-lg p-4 hover:bg-slate-800 lg:justify-start ${
                 link.color
               } `}>
               <link.imgURL
                 // @ts-ignore
-                width={18}
-                height={18}
+                width={20}
+                height={20}
                 color={link.color}
               />
 

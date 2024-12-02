@@ -36,7 +36,7 @@ const QuestionDetails = async ({
     mongoUser = await getUserById({ userId: clerkId });
   }
   return (
-    <>
+    <article>
       <div className="flex-start w-full flex-col ">
         <div className="flex w-full flex-col-reverse justify-between gap-5 sm:flex-row sm:items-center sm:gap-2">
           <Link
@@ -69,9 +69,9 @@ const QuestionDetails = async ({
             )}
           </div>
         </div>
-        <h2 className="h2-semibold text-dark200_light900 mt-3.5 w-full text-left">
+        <h1 className="h2-semibold text-dark200_light900 mt-3.5 w-full text-left">
           {question.title}
-        </h2>
+        </h1>
       </div>
       <div className="mb-8 mt-5 flex flex-wrap gap-4">
         <Metric
@@ -126,7 +126,7 @@ const QuestionDetails = async ({
           />
         </>
       )}
-    </>
+    </article>
   );
 };
 
