@@ -5,6 +5,8 @@ import { ReloadIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import Image from "next/image";
 import { globalSearch } from "@/lib/actions/general.action";
+import { openAtom } from "@/lib/state/atom";
+import { useRecoilState } from "recoil";
 
 const GlobalResult = () => {
   const searchParams = useSearchParams();
@@ -56,10 +58,10 @@ const GlobalResult = () => {
         return "/";
     }
   };
-
+  const [, setOpen] = useRecoilState(openAtom);
   return (
-    <div className="absolute top-full z-10 mt-3 w-full rounded-xl py-5 shadow-sm ">
-      <p className="text-dark400_light900 paragraph-semibold px-5">
+    <div className="absolute top-full z-10 mt-3 w-full rounded-xl py-5 ">
+      <p className="text-dark400_light900 paragraph-semibold w-full px-5">
         <GlobalFilters />
       </p>
       <div className="my-5 h-[1px] bg-light-700/50 dark:bg-dark-500/50"></div>
@@ -75,13 +77,14 @@ const GlobalResult = () => {
             </p>
           </div>
         ) : (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col  gap-2">
             {result.length > 0 ? (
               result.map((item: any, index: number) => (
                 <Link
                   href={renderLink(item.type, item.id)}
                   key={item.type + item.id + index}
-                  className="flex w-full cursor-pointer items-start gap-3 px-5 py-2.5 hover:bg-light-700/50 dark:bg-dark-500/50">
+                  onClick={() => setOpen(false)}
+                  className="flex w-full cursor-pointer items-start gap-3 rounded-md px-5 py-2.5 hover:bg-light-700/50 dark:bg-dark-500/50">
                   <Image
                     src={"/assets/icons/tag.svg"}
                     alt="tags"

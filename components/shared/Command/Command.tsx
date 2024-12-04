@@ -39,11 +39,17 @@ export function CommandCard() {
   return (
     <div
       ref={searchRef}
-      className={` absolute left-1/2 top-10  h-1/2 w-full max-w-2xl -translate-x-1/2 
-      overflow-auto rounded-lg border p-3 shadow-md backdrop-blur-md ${
-        !open && "hidden"
-      } `}>
-      <GlobalSearch />
+      // className={` absolute left-1/2 top-10  h-1/2 w-full max-w-2xl -translate-x-1/2
+      // overflow-auto rounded-lg border p-3 shadow-md backdrop-blur-md ${
+      //   !open && "hidden"
+      // }`}
+      className="">
+      <div
+        className={`${
+          !open && "hidden"
+        } fixed  inset-0 flex w-full justify-center bg-black/5 p-4 pt-10 backdrop-blur-sm`}>
+        <GlobalSearch />
+      </div>
     </div>
   );
 }
